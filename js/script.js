@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Format the message for WhatsApp
             const whatsappMessage = `*New Inquiry from Website*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
             
-            // WhatsApp phone number - replace with your actual number
-            const phoneNumber = '14702738007';
+            // WhatsApp phone number
+            const phoneNumber = '17708827111';
             
             // Create WhatsApp URL
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
