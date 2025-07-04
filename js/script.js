@@ -120,8 +120,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Form submission is now handled by FormSubmit service
-    // No JavaScript needed for basic form functionality
+    // WhatsApp form submission
+    const whatsappSubmit = document.getElementById('whatsappSubmit');
+    const contactForm = document.getElementById('contactForm');
+    
+    if (whatsappSubmit && contactForm) {
+        whatsappSubmit.addEventListener('click', function() {
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Form validation
+            if (!name || !email || !phone || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Format the message for WhatsApp
+            const whatsappMessage = `*New Inquiry from Website*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
+            
+            // WhatsApp phone number - replace with your actual number
+            const phoneNumber = '14702738007';
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+        });
+    }
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
